@@ -1,0 +1,18 @@
+import os
+from pygame import mixer
+from gtts import gTTS
+ 
+ 
+mp3_name = "audio.mp3"
+my_file = open("file.txt","r")
+my_string = my_file.read()
+my_file.close()
+ 
+mixer.init()
+ 
+tts=gTTS(text=my_string, lang='ru')
+ 
+tts.save(mp3_name)
+mixer.music.load(mp3_name)
+mixer.music.play()
+os.remove(mp3_name)
